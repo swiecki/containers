@@ -14,7 +14,7 @@ def check_api_availability(host):
             print('something went wrong')
         time.sleep(200/1000)
 
-check_api_availability("http://127.0.0.1:3000/sdapi/v1/txt2img")
+check_api_availability("http://127.0.0.1:3000/controlnet/txt2img")
 
 print('run handler')
 
@@ -25,7 +25,7 @@ def handler(event):
     print('got event')
     print(event)
 
-    response = requests.post(url=f'http://127.0.0.1:3000/sdapi/v1/txt2img', json=event["input"])
+    response = requests.post(url=f'http://127.0.0.1:3000/controlnet/txt2img', json=event["input"])
 
     json = response.json()
     # do the things
